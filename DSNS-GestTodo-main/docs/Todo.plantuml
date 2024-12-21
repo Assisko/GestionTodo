@@ -1,0 +1,35 @@
+@startuml
+
+
+top to bottom direction
+
+
+@startuml
+class GestTodo {
+    - todosList : ArrayList<Todo>
+    + GestTodo()
+    + addTodo(todo : Todo) : void
+    + removeTodoById(id : Long) : void
+    + markTodoAsCompletedById(id : Long) : void
+    + modifyTodoById(id : Long, newDescription : String) : void
+    + displayTodos() : void
+}
+
+class Todo {
+    - id : Long
+    - description : String
+    - isCompleted : boolean
+    + Todo(description : String)
+    + getId() : Long
+    + setId(id : Long) : void
+    + getDescription() : String
+    + setDescription(description : String) : void
+    + isCompleted() : boolean
+    + setCompleted(completed : boolean) : void
+}
+'Relation de composition GestTodo *-- Todo : utilise:
+' Indicates that GestTodo uses Todo (a composition relationship where GestTodo contains Todo objects).
+' The * at the GestTodo end signifies that it can hold multiple Todo objects
+GestTodo *-- Todo : utilise
+@enduml
+
